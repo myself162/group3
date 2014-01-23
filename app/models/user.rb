@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   has_many :posts
 
   has_many :group_users
-  has_many :participated_groups, :through => :group_users, :sources => :group
+  has_many :participated_groups, :through => :group_users, :source => :group
   extend OmniauthCallbacks
 
   devise :database_authenticatable, :registerable,

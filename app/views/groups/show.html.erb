@@ -3,9 +3,9 @@
   <% if current_user %>
     <div class="group pull-right">
       <% if current_user.is_member_of?(@group) %>
-      <%= link_to("Quit Group"), quit_group_path(@group), :method => :post, :class => "btn btn-mini"%>
+      <%= link_to("Quit Group", quit_group_path(@group), :method => :post, :confirm => "Are you kiddddding?", :class => "btn btn-mini")%>
       <% else %>
-      <%= link_tp("Join Group", join_group_path(@group), :method => :post, :class => "btn btn-mini")%>
+      <%= link_to("Join Group", join_group_path(@group), :method => :post, :confirm => "Are you kidding?", :class => "btn btn-mini")%>
       <% end %>
     </div>
   <% end %>
@@ -34,7 +34,7 @@
 
         </td>
         <% if current_user && post.editable_by?(current_user) %>
-        <td> <%= link_to("Edit", edit_group_post_path(post.group, post), :class => "btn btn-mini")%> </td>
+        <td> <%= link_to("Edit", edit_group_post_path(post.group, post), :class => "btn btn-mini") %> </td>
         <td> <%= link_to("Delete", group_post_path(post.group, post), :class => "btn btn-mini", :method => :delete, :confirm => "Are you kidding?") %> </td>
       </tr>
       <% end %>
