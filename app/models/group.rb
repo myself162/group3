@@ -5,6 +5,7 @@ class Group < ActiveRecord::Base
   has_many :members, :through => :group_users, :source => :user
   after_create :join_owner_to_group
   validates :title, :presence => true
+  after_create :join_owner_to_group
 
   def editable_by?(user)
     user && user == owner
